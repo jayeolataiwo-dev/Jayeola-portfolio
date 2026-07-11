@@ -1,0 +1,605 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+  font-family: -apple-system,sans-serif;
+}
+
+:root{
+  --bg-color:#FFF9F5;
+  --snd-bg-color:#F1E4D9;
+  --text-color:#6D5C56;
+  --main-color:#C08B73;
+  /* Added: darker variants of the same rose/tan hue, used only where text
+     or icons sit on top of a light or mid-tone background and need enough
+     contrast to be readable (WCAG AA). --main-color itself is kept for
+     backgrounds, glows and shadows where it already looked right. */
+  --main-dark:#8C5B45;
+  --dark-text:#2E211D;
+}
+
+html{
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body{
+  background-color: var(--bg-color);
+  color: var(--text-color)
+}
+
+section{
+  min-height: 100vh;
+  padding: calc(var(--fixed-offset, 10rem) + 1rem) 9% 2rem;
+}
+
+/*fixed top wrapper: holds the demo banner + header together so they stack
+  cleanly with no manual offset math, and collapse correctly if the banner
+  is dismissed*/
+.top-fixed{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+/*demo banner*/
+.demo-banner{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  background: var(--dark-text);
+  color: var(--bg-color);
+  padding: 1rem 4rem;
+  text-align: center;
+}
+.demo-banner p{
+  font-size: 1.4rem;
+  margin: 0;
+}
+.demo-banner #closeBanner{
+  background: transparent;
+  color: var(--bg-color);
+  font-size: 2.2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  flex-shrink: 0;
+}
+
+/*header section code*/
+.header{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 5%;
+  background-color: var(--main-color);
+  backdrop-filter: blur(10px);
+  transition: all 0.5s ease;
+}
+
+.logo{
+  font-size: 3rem;
+  color: var(--dark-text); /* was --bg-color: only 2.8:1 contrast on --main-color, failed WCAG AA */
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.logo:hover{
+  transform: scale( 1.05);
+}
+
+.navbar a{
+  font-size: 1.9rem;
+  color: var(--dark-text); /* was --bg-color, same low-contrast issue as .logo */
+  margin-left: 4rem;
+  font-weight: 700;
+  transition: 0.3s ease;
+}
+
+.navbar a:hover,.navbar a:active{
+  text-decoration: underline;
+  text-underline-offset: 0.4rem;
+}
+
+#menu-icon{
+  font-size: 3.6rem;
+  color: var(--dark-text); /* was --bg-color */
+  cursor: pointer;
+  display:none;
+}
+
+/*Home section code*/
+.home{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-img img{
+  width: 25vw;
+  max-width: 340px; /* prevents the photo from ballooning on large monitors */
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--main-color);
+  cursor: pointer;
+  animation: floatimage 4s ease-in-out infinite;
+  transition: 0.4s ease;
+}
+
+.home-img img:hover{
+  box-shadow: 0 0 25px var(--main-color),
+              0 0 35px var(--main-color),
+              0 0 45px var(--main-color);
+}
+
+@keyframes floatimage{
+  0%, 100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-2.4rem);
+  }
+}
+
+.home-content{
+  margin-left: 5rem;
+}
+.home-content h3{
+  font-size: 3.7rem;
+  font-weight: 700;
+}
+
+.home-content h3:nth-of-type(2){
+  margin-bottom: 2rem;
+}
+span{
+  color: var(--main-color);
+}
+
+.home-content h1{
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.home-content p{
+  font-size: 1.6rem;
+}
+.Social-media a{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  background-color: transparent;
+  border: 0.2rem solid var(--main-dark); /* was --main-color: 2.8:1 on the cream page bg, failed */
+  border-radius: 50%;
+  font-size: 2rem;
+  color: var(--main-dark);
+  margin: 3rem 1.5rem 3rem 0;
+  transition: 0.3s ease;
+}
+
+.Social-media a:hover{
+  background-color: var(--main-color);
+  color: var(--dark-text); /* was --bg-color, low contrast on this background too */
+  transform: scale(1.2) translateY(-10px);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.btn{
+  display: inline-block;
+  padding: 1rem 2.8rem;
+  background-color: var(--main-color);
+  color: var(--dark-text); /* was --bg-color: 2.8:1, failed */
+  font-size: 1.6rem;
+  font-weight: 600;
+  box-shadow: none;
+  border-radius: 4rem;
+  letter-spacing: 0.1rem;
+  transition: 0.3s ease;
+}
+
+.btn:hover{
+  background-color: transparent;
+  color: var(--main-dark); /* was --main-color, also failed on the cream bg */
+  border: 0.2rem solid var(--main-color);
+  box-shadow: 0 0 1.6rem var(--main-color);
+}
+
+/* About section code*/
+.about{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--snd-bg-color);
+}
+.about-img img{
+  width: 25vw;
+  max-width: 340px;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  box-shadow: 0 0 25px var(--main-color);
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.about-img img:hover{
+  box-shadow: 0 0 25px var(--main-color),
+              0 0 35px var(--main-color),
+              0 0 45px var(--main-color);
+}
+
+.heading{
+  font-size: 6rem;
+  text-align: left;
+}
+
+.about-content{
+  padding: 0.4rem;
+}
+.about-content h2{
+  text-align: left;
+  line-height: 1.2;
+}
+.about-content h3{
+  font-size: 3rem;
+}
+.about-content p{
+  font-size: 1.6rem;
+  margin: 2rem 0 3rem;
+}
+
+/* Skills section code*/
+.Skills h2{
+  margin-bottom: 5rem;
+}
+.Skills-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap:wrap;
+}
+
+.Skills-container .Skills-box{
+  flex: 1 1 30rem;
+  background: var(--snd-bg-color);
+  padding: 6rem 2rem 6rem;
+  border-radius: 2rem;
+  text-align: center;
+  border: 0.3rem solid var(--bg-color);
+  transition: 0.3s ease;
+}
+
+.Skills-container .Skills-box:hover{
+  border-color: var(--main-color);
+  transform: scale3d(1.02, 1.02, 1.02); /* was scale3d(1.02) — invalid, needs x/y/z, so this never applied */
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.Skills-box i{
+  font-size: 7rem;
+  color: var(--main-color);
+}
+.Skills-box h3{
+  font-size: 2.6rem;
+}
+.Skills-box p{
+  font-size: 1.6rem;
+  margin: 1rem 0 3rem;
+}
+
+/*Testimonials section code*/
+.testimonials{
+  background: var(--snd-bg-color);
+}
+.testimonials-box{
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.testimonials .heading{
+  margin-bottom: 1.5rem;
+}
+.testimonials-note{
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-bottom: 5rem;
+  color: var(--text-color);
+}
+.testimonials-item img{
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center;
+  max-width: 100%;
+  border-radius: 50%;
+  border: 3px solid var(--main-color);
+  box-shadow: 0 0 25px var(--main-color);
+}
+.wrapper{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 3rem;
+}
+
+.testimonials-item{
+  background: var(--bg-color);
+  padding: 1.5rem;
+  border: 0.3rem solid var(--main-color);
+  border-radius: 2rem;
+  min-height: 450px;
+  max-width: 450px;
+  transition: 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.testimonials-item:hover{
+  border-color: var(--main-color);
+  transform: scale3d(1.02, 1.02, 1.02);
+  box-shadow: 0 0 25px var(--main-color);
+}
+.testimonials-item h2{
+  font-size:2.4rem;
+}
+.testimonials-item p{
+  font-size: 1.6rem;
+  line-height: 1.5;
+  text-align: center;
+}
+.rating{
+  color: gold;
+  font-size: 1.6rem;
+}
+.rating .bx-star{
+  margin-right: 0.2rem;
+}
+
+/*contact section code*/
+.contact{
+  background: var(--bg-color);
+}
+.contact .heading{
+  text-align: center;
+  margin-bottom: 5rem;
+}
+.contact h2{
+  margin-bottom: 3rem;
+  color: var(--main-color);
+}
+.contact form{
+  max-width: 80rem;
+  margin:  1rem auto;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.contact form .input-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.contact form .input-box input,
+.contact form textarea{
+  width: 100%;
+  padding: 1rem;
+  background: var(--bg-color);
+  border: 0.25rem solid var(--main-color);
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  color: var(--text-color);
+  margin: 0.7rem 0;
+  resize: none;
+}
+.contact form .input-box input{
+  height: 4rem;
+  width: 49%;
+  margin: 0.7rem 0.35rem;
+}
+.contact form .btn{
+  margin-top: 2rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+.form-status{
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  min-height: 2rem;
+}
+.form-status.success{ color: #3a7d44; }
+.form-status.error{ color: #b23a3a; }
+
+/*footer section code*/
+.footer{
+  position: relative;
+  width: 100%;
+  background-color: var(--snd-bg-color);
+  padding: 15px 0;
+  margin: 0;
+}
+.footer .social{
+  text-align: center;
+  padding-bottom: 10px;
+  color: var(--main-dark);
+}
+.footer .social a{
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  background-color: transparent;
+  border: 2px solid var(--main-dark); /* was --main-color: 2.3:1 on this bg, failed */
+  border-radius: 50%;
+  font-size: 25px;
+  color: var(--main-dark);
+  margin: 0 10px;
+  transition: 0.3s ease;
+}
+.footer .social a:hover{
+  background-color: var(--main-color);
+  color: var(--dark-text);
+  transform: scale(1.2) translateY(-10px);
+  box-shadow: 0 0 25px var(--main-color);
+}
+
+.footer .copyright{
+  margin-top: 10px;
+  text-align: center;
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+/* Responsive Design Code*/
+@media (max-width: 1200px) {
+  html{
+    font-size: 55%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 991px){
+  .header{
+    padding: 2rem 3%;
+  }
+  section{
+    padding: 10rem 3%;
+  }
+  #menu-icon{
+    display:block;
+  }
+  .navbar{
+    position: absolute;
+    top: 100%;
+    right:-100%;
+    width: 225px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--main-color);
+    transition: all 0.5s ease;
+    backdrop-filter: blur(10px);
+  }
+  .navbar a{
+    display: block;
+    padding: 17px;
+    font-size: 22px;
+  }
+  .navbar.active{
+    right: 0;
+  }
+  .home{
+    flex-direction: column;
+  }
+  .home-content h3{
+    font-size: 2.6rem;
+  }
+  .home-content h1{
+    font-size: 5rem;
+  }
+  .home-content{
+    order: 2;
+    margin-left: 1rem;
+    text-align: center;
+  }
+  .home-img img{
+    width:60vw;
+    margin-top: 4rem;
+  }
+  .about{
+    flex-direction: column-reverse;
+  }
+  .about-img img{
+    width:60vw;
+    margin-top: 4rem;
+  }
+  .about-content{
+    text-align: center;
+  }
+  .about-content h2, .about-content h3{
+    text-align: center;
+  }
+  .contact form .input-box input{
+    width: 100%;
+  }
+  .footer{
+    padding: 2rem 3%;
+  }
+  /* previously the grid jumped straight from 3 columns to 1; a 2-column
+     step reads much better on tablet-width screens */
+  .wrapper{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px){
+  .wrapper{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Phones */
+@media (max-width: 617px) {
+  html{
+    font-size: 50%;
+  }
+  .home-img img{
+    width: 70vw;
+    margin-top: 8rem;
+  }
+  .about-img img{
+    width: 70vw;
+    margin-top: 4rem;
+  }
+  .home-content h3{
+    font-size: 2rem;
+  }
+  .home-content h1{
+    font-size: 4rem;
+  }
+  .Skills-container .Skills-box{
+    padding: 4rem 2rem;
+  }
+  .testimonials-item{
+    max-width: 100%;
+    min-height: auto;
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 400px){
+  html{
+    font-size: 44%;
+  }
+  .home-img img, .about-img img{
+    width: 80vw;
+  }
+  .contact form .input-box input{
+    height: 4.6rem;
+  }
+  .Social-media a, .footer .social a{
+    width: 38px;
+    height: 38px;
+  }
+}
