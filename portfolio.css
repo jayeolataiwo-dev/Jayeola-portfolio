@@ -14,10 +14,7 @@
   --snd-bg-color:#F1E4D9;
   --text-color:#6D5C56;
   --main-color:#C08B73;
-  /* Added: darker variants of the same rose/tan hue, used only where text
-     or icons sit on top of a light or mid-tone background and need enough
-     contrast to be readable (WCAG AA). --main-color itself is kept for
-     backgrounds, glows and shadows where it already looked right. */
+  
   --main-dark:#8C5B45;
   --dark-text:#2E211D;
 }
@@ -35,48 +32,16 @@ body{
 
 section{
   min-height: 100vh;
-  padding: calc(var(--fixed-offset, 10rem) + 1rem) 9% 2rem;
-}
-
-/*fixed top wrapper: holds the demo banner + header together so they stack
-  cleanly with no manual offset math, and collapse correctly if the banner
-  is dismissed*/
-.top-fixed{
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-}
-
-/*demo banner*/
-.demo-banner{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.6rem;
-  background: var(--dark-text);
-  color: var(--bg-color);
-  padding: 1rem 4rem;
-  text-align: center;
-}
-.demo-banner p{
-  font-size: 1.4rem;
-  margin: 0;
-}
-.demo-banner #closeBanner{
-  background: transparent;
-  color: var(--bg-color);
-  font-size: 2.2rem;
-  line-height: 1;
-  cursor: pointer;
-  padding: 0 0.5rem;
-  flex-shrink: 0;
+  padding: 10rem 9% 2rem;
 }
 
 /*header section code*/
 .header{
+  position: fixed;
   width: 100%;
+  top:0;
+  z-index: 100;
+  right: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -88,7 +53,7 @@ section{
 
 .logo{
   font-size: 3rem;
-  color: var(--dark-text); /* was --bg-color: only 2.8:1 contrast on --main-color, failed WCAG AA */
+  color: var(--dark-text); 
   font-weight: 700;
   cursor: pointer;
   transition: 0.3s ease;
@@ -100,7 +65,7 @@ section{
 
 .navbar a{
   font-size: 1.9rem;
-  color: var(--dark-text); /* was --bg-color, same low-contrast issue as .logo */
+  color: var(--dark-text); 
   margin-left: 4rem;
   font-weight: 700;
   transition: 0.3s ease;
@@ -126,7 +91,7 @@ section{
 }
 .home-img img{
   width: 25vw;
-  max-width: 340px; /* prevents the photo from ballooning on large monitors */
+  max-width: 340px; 
   border-radius: 50%;
   box-shadow: 0 0 25px var(--main-color);
   cursor: pointer;
@@ -180,7 +145,7 @@ span{
   width: 42px;
   height: 42px;
   background-color: transparent;
-  border: 0.2rem solid var(--main-dark); /* was --main-color: 2.8:1 on the cream page bg, failed */
+  border: 0.2rem solid var(--main-dark); 
   border-radius: 50%;
   font-size: 2rem;
   color: var(--main-dark);
@@ -190,7 +155,7 @@ span{
 
 .Social-media a:hover{
   background-color: var(--main-color);
-  color: var(--dark-text); /* was --bg-color, low contrast on this background too */
+  color: var(--dark-text); 
   transform: scale(1.2) translateY(-10px);
   box-shadow: 0 0 25px var(--main-color);
 }
@@ -210,7 +175,7 @@ span{
 
 .btn:hover{
   background-color: transparent;
-  color: var(--main-dark); /* was --main-color, also failed on the cream bg */
+  color: var(--main-dark); 
   border: 0.2rem solid var(--main-color);
   box-shadow: 0 0 1.6rem var(--main-color);
 }
@@ -283,7 +248,7 @@ span{
 
 .Skills-container .Skills-box:hover{
   border-color: var(--main-color);
-  transform: scale3d(1.02, 1.02, 1.02); /* was scale3d(1.02) — invalid, needs x/y/z, so this never applied */
+  transform: scale3d(1.02, 1.02, 1.02); 
   box-shadow: 0 0 25px var(--main-color);
 }
 
@@ -299,79 +264,76 @@ span{
   margin: 1rem 0 3rem;
 }
 
-/*Testimonials section code*/
-.testimonials{
+/*Projects section code*/
+.projects{
   background: var(--snd-bg-color);
 }
-.testimonials-box{
+.projects-box{
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.testimonials .heading{
-  margin-bottom: 1.5rem;
-}
-.testimonials-note{
-  font-size: 1.4rem;
-  font-style: italic;
+.projects .heading{
   margin-bottom: 5rem;
-  color: var(--text-color);
-}
-.testimonials-item img{
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  object-position: center;
-  max-width: 100%;
-  border-radius: 50%;
-  border: 3px solid var(--main-color);
-  box-shadow: 0 0 25px var(--main-color);
 }
 .wrapper{
   display: grid;
-  grid-template-columns: repeat(3,1fr);
+  grid-template-columns: repeat(2,1fr);
   gap: 3rem;
 }
 
-.testimonials-item{
+.project-item{
   background: var(--bg-color);
-  padding: 1.5rem;
+  padding: 3rem 2.5rem;
   border: 0.3rem solid var(--main-color);
   border-radius: 2rem;
-  min-height: 450px;
-  max-width: 450px;
+  min-height: 320px;
   transition: 0.3s ease;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  gap: 2rem;
+  gap: 1.2rem;
   text-align: center;
   color: var(--text-color);
 }
 
-.testimonials-item:hover{
+.project-item:hover{
   border-color: var(--main-color);
   transform: scale3d(1.02, 1.02, 1.02);
   box-shadow: 0 0 25px var(--main-color);
 }
-.testimonials-item h2{
+.project-item i{
+  font-size: 5rem;
+  color: var(--main-color);
+}
+.project-item h2{
   font-size:2.4rem;
 }
-.testimonials-item p{
+.project-item p{
   font-size: 1.6rem;
   line-height: 1.5;
   text-align: center;
 }
-.rating{
-  color: gold;
-  font-size: 1.6rem;
+.project-links{
+  display: flex;
+  gap: 1.2rem;
+  margin-top: auto;
+  padding-top: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.rating .bx-star{
-  margin-right: 0.2rem;
+.btn-outline{
+  background-color: transparent;
+  color: var(--main-dark);
+  border: 0.2rem solid var(--main-color);
+}
+.btn-outline:hover{
+  background-color: var(--main-color);
+  color: var(--dark-text);
+  box-shadow: 0 0 1.6rem var(--main-color);
 }
 
 /*contact section code*/
@@ -448,7 +410,7 @@ span{
   width: 42px;
   height: 42px;
   background-color: transparent;
-  border: 2px solid var(--main-dark); /* was --main-color: 2.3:1 on this bg, failed */
+  border: 2px solid var(--main-dark); 
   border-radius: 50%;
   font-size: 25px;
   color: var(--main-dark);
@@ -544,8 +506,7 @@ span{
   .footer{
     padding: 2rem 3%;
   }
-  /* previously the grid jumped straight from 3 columns to 1; a 2-column
-     step reads much better on tablet-width screens */
+
   .wrapper{
     grid-template-columns: repeat(2,1fr);
   }
@@ -580,7 +541,7 @@ span{
   .Skills-container .Skills-box{
     padding: 4rem 2rem;
   }
-  .testimonials-item{
+  .project-item{
     max-width: 100%;
     min-height: auto;
     padding: 2.5rem 1.5rem;
