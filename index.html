@@ -12,26 +12,19 @@
     <title>Jayeola Taiwo Elizabeth - Portfolio</title>
   </head>
   <body>
-    <div class="top-fixed" id="topFixed">
-      <!--demo disclaimer banner-->
-      <div class="demo-banner" id="demoBanner">
-        <p>This is a demo portfolio — the profile photos and testimonials shown are AI-generated placeholders, not real people.</p>
-        <button id="closeBanner" aria-label="Dismiss this notice">&times;</button>
-      </div>
-      <!--header section code-->
-      <header class="header">
-        <a href="#home" class="logo"> Jayeola Taiwo Elizabeth </a>
-        <i class="bx bx-menu" id="menu-icon"></i>
+    <!--header section code-->
+    <header class="header">
+      <a href="#home" class="logo"> Jayeola Taiwo Elizabeth </a>
+      <i class="bx bx-menu" id="menu-icon"></i>
 
-        <nav class="navbar">
-          <a href="#home">home</a>
-          <a href="#about">about</a>
-          <a href="#Skills">Skills</a>
-          <a href="#testimonials">testimonials</a>
-          <a href="#contact">contact</a>
-        </nav>
-      </header>
-    </div>
+      <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#about">about</a>
+        <a href="#Skills">Skills</a>
+        <a href="#projects">projects</a>
+        <a href="#contact">contact</a>
+      </nav>
+    </header>
     <!--Home section code-->
     <section class="home" id="home">
       <div class="home-img">
@@ -46,10 +39,9 @@
           baking delicious pastries and cakes
         </p>
         <div class="Social-media">
-          <a href="#" aria-label="LinkedIn"> <i class="bx bxl-linkedin"></i> </a>
-          <a href="#" aria-label="WhatsApp"> <i class="bx bxl-whatsapp"></i> </a>
-          <a href="#" aria-label="Instagram"> <i class="bx bxl-instagram"></i> </a>
-          <a href="#" aria-label="TikTok"> <i class="bx bxl-tiktok"></i> </a>
+          <a href="https://github.com/jayeolataiwo-dev" aria-label="GitHub" target="_blank" rel="noopener"> <i class="bx bxl-github"></i> </a>
+          <a href="https://www.linkedin.com/in/taiwo-jayeola-b53870277" aria-label="LinkedIn" target="_blank" rel="noopener"> <i class="bx bxl-linkedin"></i> </a>
+          <a href="https://wa.me/2347026691684" aria-label="WhatsApp" target="_blank" rel="noopener"> <i class="bx bxl-whatsapp"></i> </a>
         </div>
         <a
           href="assets/Jayeola-Taiwo-Elizabeth-CV.pdf"
@@ -66,10 +58,13 @@
         <h2 class="heading">About <span> Me</span></h2>
         <h3>I'm a <span> Frontend Developer</span></h3>
         <p>
-          I am currently learning web development and focusing on frontend
-          technologies. I am also an undergraduate student of psychology at the
-          prestigious University of Lagos. On the side, I enjoy baking and
-          creating delicious treats for my family, customers and friends.
+          I'm a frontend development student who recently completed an
+          AI-assisted frontend engineering internship, where I built a full
+          capstone project from the ground up — combining hand-written
+          HTML/CSS/JS with AI-directed feature work. I'm also an undergraduate
+          student of psychology at the University of Lagos, and on the side I
+          run a small baking business, which keeps me sharp on customer
+          communication, planning, and getting the details right.
         </p>
         <a href="#Skills" class="btn">Learn More</a>
       </div>
@@ -89,8 +84,9 @@
           <i class="bx bx-code"></i>
           <h3>Web Development</h3>
           <p>
-            I am currently learning web development while focusing on frontend
-            development, creating responsive and user-friendly websites.
+            HTML, CSS, and JavaScript, with hands-on experience directing AI
+            coding tools to ship real features — from a streaming AI chat
+            interface to hand-built accessible UI components.
           </p>
           <a href="#contact" class="btn">Learn More</a>
         </div>
@@ -117,71 +113,42 @@
       </div>
     </section>
 
-    <!--Testimonials section code-->
+    <!--Projects section code-->
 
-    <section class="testimonials" id="testimonials">
-      <div class="testimonials-box">
-        <h2 class="heading">Testimonial</h2>
-        <p class="testimonials-note">Note: the photos and quotes below are AI-generated placeholders for demonstration purposes.</p>
+    <section class="projects" id="projects">
+      <div class="projects-box">
+        <h2 class="heading">My <span>Projects</span></h2>
 
         <div class="wrapper">
-          <div class="testimonials-item">
-            <img
-              src="images/testimonial-1.jpg"
-              alt="Adejoke Johnson"
-              loading="lazy"
-            />
-            <h2>Adejoke Johnson</h2>
-            <div class="rating" aria-label="4 out of 5 stars">
-              <i class="bx bxs-star star"></i>
-              <i class="bx bxs-star star"></i>
-              <i class="bx bxs-star star"></i>
-              <i class="bx bxs-star star"></i>
-            </div>
+          <div class="project-item">
+            <i class="bx bx-code-alt"></i>
+            <h2>Spectranet Redesign</h2>
             <p>
-              Jayeola is a talented web developer with a passion for creating
-              beautiful and functional websites. She is proactive and
-              enthusiastic, influencing other students in the field.
+              A capstone project reimagining Spectranet's self-care web
+              experience — hand-built HTML/CSS/JS foundations plus
+              AI-directed features including a streaming AI chat assistant
+              and an interactive 3D product viewer, with three accessible UI
+              components built from scratch against WAI-ARIA patterns.
             </p>
-          </div>
-          <div class="testimonials-item">
-            <img
-              src="images/testimonial-2.jpg"
-              alt="Dr. Adewale Miguel"
-              loading="lazy"
-            />
-            <h2>DR. Adewale Miguel</h2>
-            <div class="rating" aria-label="3 out of 5 stars">
-              <i class="bx bxs-star star"></i>
-              <i class="bx bxs-star star"></i>
-              <i class="bx bxs-star star"></i>
+            <div class="project-links">
+              <a href="https://flyrank-capstone-vbpb-two.vercel.app" class="btn" target="_blank" rel="noopener">Live Site</a>
+              <a href="https://github.com/jayeolataiwo-dev/flyrank-capstone" class="btn btn-outline" target="_blank" rel="noopener">Code</a>
             </div>
-            <p>
-              Jayeola is a dedicated student with a strong work ethic and a
-              passion for learning. She is an active participant in class
-              discussions and consistently produces high-quality work.
-            </p>
           </div>
 
-          <div class="testimonials-item">
-            <img
-              src="images/testimonial-3.jpg"
-              alt="Laurel Matthews"
-              loading="lazy"
-            />
-            <h2>Laurel Matthews</h2>
-            <div class="rating" aria-label="4 out of 5 stars">
-              <i class="bx bxs-star star"></i>
-              <i class="bx bxs-star star"></i>
-              <i class="bx bxs-star star"></i>
-              <i class="bx bxs-star star"></i>
-            </div>
+          <div class="project-item">
+            <i class="bx bx-happy-heart-eyes"></i>
+            <h2>Joke Booth</h2>
             <p>
-              Jayeola is an amazing baker, who has a talent for creating
-              delicious and visually stunning cakes and pastries. Her
-              attention to detail and creativity in the kitchen is truly
-              impressive.
+              A playful joke generator built with vanilla HTML, CSS, and
+              JavaScript — pulls random jokes across multiple categories from
+              public APIs, with a copy-to-clipboard button and a bold,
+              cartoonish visual style.
             </p>
+            <div class="project-links">
+              <a href="https://jayeolataiwo-dev.github.io/JOKE-BOOTH/" class="btn" target="_blank" rel="noopener">Live Site</a>
+              <a href="https://github.com/jayeolataiwo-dev/JOKE-BOOTH" class="btn btn-outline" target="_blank" rel="noopener">Code</a>
+            </div>
           </div>
         </div>
       </div>
@@ -191,11 +158,16 @@
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span> Me</span></h2>
       <!--
-        This form posts to Formspree (free, no backend needed) and is
-        already connected to Jayeola's Formspree account, so submissions
-        will arrive in her inbox as-is.
+        This form posts to Formspree (free, no backend needed).
+        To activate it for real:
+        1. Go to https://formspree.io and sign up free with your email
+        2. Create a new form, it gives you an endpoint like
+           https://formspree.io/f/abc123
+        3. Replace YOUR_FORM_ID below with that code
+        Until you do this, the form will show a friendly error instead
+        of pretending to send.
       -->
-      <form id="contactForm" action="https://formspree.io/f/mrenzqbn" method="POST">
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="input-box">
           <input type="text" name="name" placeholder="Full Name" required />
           <input type="email" name="email" placeholder="Email Address" required />
@@ -219,10 +191,9 @@
     <!--footer section code--->
     <footer class="footer">
       <div class="social">
-        <a href="#" aria-label="LinkedIn"> <i class="bx bxl-linkedin"></i> </a>
-        <a href="#" aria-label="WhatsApp"> <i class="bx bxl-whatsapp"></i> </a>
-        <a href="#" aria-label="Instagram"> <i class="bx bxl-instagram"></i> </a>
-        <a href="#" aria-label="TikTok"> <i class="bx bxl-tiktok"></i> </a>
+        <a href="https://github.com/jayeolataiwo-dev" aria-label="GitHub" target="_blank" rel="noopener"> <i class="bx bxl-github"></i> </a>
+        <a href="https://www.linkedin.com/in/taiwo-jayeola-b53870277" aria-label="LinkedIn" target="_blank" rel="noopener"> <i class="bx bxl-linkedin"></i> </a>
+        <a href="https://wa.me/2347026691684" aria-label="WhatsApp" target="_blank" rel="noopener"> <i class="bx bxl-whatsapp"></i> </a>
       </div>
       <p class="copyright">
         &copy; Jayeola Taiwo Elizabeth 2026. All rights reserved.
